@@ -1,8 +1,12 @@
 <template>
   <div id="app">
     <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">Feed</router-link> |
+      <router-link to="/signup">Create an Account</router-link> |
+      <router-link to="/search">Search</router-link> |
+      <router-link to="/posts">My Posts</router-link> |
+      <router-link to="/create">Create a Post</router-link> |
+      <router-link to="/manage">Post Management</router-link>
     </nav>
     <router-view/>
   </div>

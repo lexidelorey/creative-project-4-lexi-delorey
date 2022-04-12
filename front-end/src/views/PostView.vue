@@ -1,9 +1,10 @@
 <template>
 <div class="home">
   <div class="header">
-    <h1>Image Feed</h1>
+    <h1>My Posts</h1>
   </div>
-  <ImageList :images="images" />
+  <input v-model="username" placeholder="Your Username...">
+  <ImageList :images="filtered_images" />
   <footer>
       Photos all taken by me :). Code for this website can be found on my <a href="https://github.com/lexidelorey/creative-project-4-lexi-delorey">Github</a>
   </footer>
@@ -16,16 +17,24 @@ import axios from 'axios';
 import ImageList from '../components/ImageList.vue'
 
 export default {
-  name: 'HomeView',
+  name: 'PostView',
   components: {
     ImageList
   },
   data() {
     return {
       images: [],
+      username: ""
+    }
+  },
+  computed: {
+    filtered_images() {
+      let items = this.images.filter(item => item.username.toLowerCase() == this.username.toLowerCase());
+      return items;
     }
   },
   created() {
+    this.username = "";
     this.getItems();
   },
   methods: {
@@ -33,7 +42,6 @@ export default {
       try {
         let response = await axios.get("/api/images");
         this.images = response.data;
-        console.log(this.images);
         return true;
       } catch (error) {
         console.log(error);

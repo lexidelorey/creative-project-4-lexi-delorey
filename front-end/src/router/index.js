@@ -1,7 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import AboutView from '../views/AboutView.vue'
+import SignupView from '../views/SignupView.vue'
+import SearchView from '../views/SearchView.vue'
+import CreateView from '../views/CreateView.vue'
+import PostView from '../views/PostView.vue'
+import PostManagementView from '../views/PostManagementView.vue'
 
 Vue.use(VueRouter)
 
@@ -11,9 +15,29 @@ const routes = [{
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'about',
-    component: AboutView
+    path: '/signup',
+    name: 'signup',
+    component: SignupView
+  },
+  {
+    path: '/search',
+    name: 'search',
+    component: SearchView
+  },
+  {
+    path: '/create',
+    name: 'create',
+    component: CreateView
+  },
+  {
+    path: '/posts',
+    name: 'post',
+    component: PostView
+  },
+  {
+    path: '/manage',
+    name: 'management',
+    component: PostManagementView
   }
 ]
 
